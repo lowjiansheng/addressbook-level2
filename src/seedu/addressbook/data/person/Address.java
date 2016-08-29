@@ -56,3 +56,57 @@ public class Address {
         return isPrivate;
     }
 }
+
+class Block{
+	
+	private String blockData;
+	
+	Block(String blockData){
+		this.blockData = blockData;
+	}
+	
+	public String getBlock(){
+		return this.blockData;
+	}
+	
+}
+
+class Street{
+	
+	private String streetData;
+	
+	Street(String streetData){
+		this.streetData = streetData;
+	}
+	
+	public String getStreet(){
+		return this.streetData;
+	}
+}
+
+class Unit{
+	
+	private String unitData;
+	
+	Unit(String unitData){
+		this.unitData = unitData;
+	}
+	
+	public String getUnit(){
+		return this.unitData;
+	}
+	
+}
+
+class PostalCode{
+	
+	private String postalCodeData;
+	
+	PostalCode(String postalCodeData){
+		this.postalCodeData = postalCodeData;
+	}
+	
+	public String getPostalCode(){
+		return this.postalCodeData;
+	}
+}
