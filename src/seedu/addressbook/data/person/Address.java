@@ -9,15 +9,12 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
+public class Address extends Contact{
 
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses has to be in this"
     		+ "format : block, street, unit, postal code";
     public static final String ADDRESS_VALIDATION_REGEX = "(.+),(.+),(.+),(.+)";
-
-    public final String value;
-    private boolean isPrivate;
     
     private Block block;
     private Unit unit;
@@ -30,14 +27,13 @@ public class Address {
      * @throws IllegalValueException if given address string is invalid.
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
-        this.isPrivate = isPrivate;
-        
-        this.value = address;
+        super.isPrivate = isPrivate; 
+        super.value = address;
         splitAddress(address);
     }
 
     
-    public void splitAddress(String address) throws IllegalValueException{
+    private void splitAddress(String address) throws IllegalValueException{
     	Pattern pattern = Pattern.compile(ADDRESS_VALIDATION_REGEX);
     	Matcher m = pattern.matcher(address);
     	
@@ -52,11 +48,7 @@ public class Address {
     	}
     }
     
-    @Override
-    public String toString() {
-        return value;
-    }
-
+    
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
@@ -64,14 +56,6 @@ public class Address {
                 && this.value.equals(((Address) other).value)); // state check
     }
 
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
-
-    public boolean isPrivate() {
-        return isPrivate;
-    }
 }
 
 class Block{
