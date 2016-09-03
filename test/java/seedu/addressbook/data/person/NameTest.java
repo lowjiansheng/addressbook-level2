@@ -18,5 +18,15 @@ public class NameTest {
 		
 		assertTrue(isSimilar(name1, name2);
 	}
+	
+	@Test
+	public void testIsNotSimilar() throws IllegalValueException {
+		String testName1 = "M Smith";
+		String testName2 = "Smith K";
+		Name name1 = new Name(testName1);
+		Name name2 = new Name(testName2);
+		
+		assertTrue(!isSimilar(name1, name2));
+	}
 
 }
