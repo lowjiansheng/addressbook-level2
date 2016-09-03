@@ -14,9 +14,8 @@ public class NameTest {
 		String testName1 = "K Smith";
 		String testName2 = "Smith K";
 		Name name1 = new Name(testName1);
-		Name name2 = new Name(testName2);
 		
-		assertTrue(isSimilar(name1, name2);
+		assertTrue(name1.isSimilar(testName2));
 	}
 	
 	@Test
@@ -24,9 +23,8 @@ public class NameTest {
 		String testName1 = "M Smith";
 		String testName2 = "Smith K";
 		Name name1 = new Name(testName1);
-		Name name2 = new Name(testName2);
 		
-		assertTrue(!isSimilar(name1, name2));
+		assertTrue(!name1.isSimilar(testName2));
 	}
 
 }
