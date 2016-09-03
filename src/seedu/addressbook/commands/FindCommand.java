@@ -1,5 +1,6 @@
 package seedu.addressbook.commands;
 
+import seedu.addressbook.data.person.Printable;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.*;
@@ -35,6 +36,23 @@ public class FindCommand extends Command {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         return new CommandResult(getMessageForPersonListShownSummary(personsFound), personsFound);
     }
+    
+    /**
+     * 
+     * @param printables
+     * @return a concatenated version of the printable strings of each object.
+     */
+	public String getPrintableString(Printable... printables) {
+
+		String totalPrintable = "";
+
+		for (Printable printable : printables) {
+			totalPrintable = totalPrintable.concat(printable.getPrintableString());
+		}
+
+		return totalPrintable;
+	}
+    
 
     /**
      * Retrieve all persons in the address book whose names contain some of the specified keywords.
@@ -45,6 +63,7 @@ public class FindCommand extends Command {
     private List<ReadOnlyPerson> getPersonsWithNameContainingAnyKeyword(Set<String> keywords) {
         final List<ReadOnlyPerson> matchedPersons = new ArrayList<>();
         for (ReadOnlyPerson person : addressBook.getAllPersons()) {
+        	getPrintableString(person.getName(), person.getEmail(), person.getPhone());
             final Set<String> wordsInName = new HashSet<>(person.getName().getWordsInName());
             if (!Collections.disjoint(wordsInName, keywords)) {
                 matchedPersons.add(person);

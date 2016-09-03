@@ -93,7 +93,7 @@ public class Main {
 				CommandResult result = executeCommand(command);
 				recordResult(result);
 				ui.showResultToUser(result);
-
+			
 			} while (!ExitCommand.isExit(command));
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
