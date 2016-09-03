@@ -9,6 +9,8 @@ import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -76,19 +78,41 @@ public class Main {
         System.exit(0);
     }
 
-    /** Reads the user command and executes it, until the user issues the exit command.  */
-    private void runCommandLoopUntilExitCommand() {
-        Command command;
-        do {
-            String userCommandText = ui.getUserCommand();
-            command = new Parser().parseCommand(userCommandText);
-            CommandResult result = executeCommand(command);
-            recordResult(result);
-            ui.showResultToUser(result);
+	/**
+	 * Reads the user command and executes it, until the user issues the exit
+	 * command.
+	 */
+	private void runCommandLoopUntilExitCommand() {
+		Command command;
+		try {
+			do {
+				String userCommandText = ui.getUserCommand();
+				checkFileExist();
+				command = new Parser().parseCommand(userCommandText);
+				CommandResult result = executeCommand(command);
+				recordResult(result);
+				ui.showResultToUser(result);
 
-        } while (!ExitCommand.isExit(command));
-    }
+			} while (!ExitCommand.isExit(command));
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
+			System.exit(0);
+		}
+	}
 
+    /**
+	 * This method checks if the addressbook.txt file has been deleted 
+	 * by the user while the program is still running.
+	 * @throws FileNotFoundException
+	 */
+	private void checkFileExist() throws FileNotFoundException {
+		final String ERROR_MESSAGE = "File has been deleted, exiting program.";
+		File addressBook = new File("addressbook.txt");
+		if (!addressBook.exists()){
+			throw new FileNotFoundException(ERROR_MESSAGE);
+		}
+	}
+    
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
     private void recordResult(CommandResult result) {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
