@@ -67,6 +67,11 @@ public class UniqueTagList implements Iterable<Tag> {
     	internalList.addAll(tags);
     }
 
+    public UniqueTagList(UniqueTagList source, Tagging tagRecords){
+    	internalList.addAll(source.internalList);
+    	this.tagRecords = tagRecords;
+    }
+   
     /**
      * Constructs a shallow copy of the given tag list.
      */

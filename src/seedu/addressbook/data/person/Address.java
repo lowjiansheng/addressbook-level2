@@ -11,7 +11,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
  */
 public class Address extends Contact implements Printable{
 
-    public static final String EXAMPLE = "123, some street";
+    public static final String EXAMPLE = "123, some street, 06126, 140101";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses has to be in this"
     		+ "format : block, street, unit, postal code";
     public static final String ADDRESS_VALIDATION_REGEX = "(.+),(.+),(.+),(.+)";

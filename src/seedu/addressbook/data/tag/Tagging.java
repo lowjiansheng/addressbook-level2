@@ -18,7 +18,6 @@ public class Tagging {
 	}
 	
 	
-
 	public void addTag(Tag tagAdd){
 		tags.add(ADD + tagAdd);
 	}

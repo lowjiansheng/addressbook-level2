@@ -229,6 +229,11 @@ public class ParserTest {
     @Test
     public void addCommand_validPersonData_parsedCorrectly() {
         final Person testPerson = generateTestPerson();
+        System.out.println(testPerson.getName());
+        System.out.println(testPerson.getPhone());
+        System.out.println(testPerson.getAddress());
+        
+
         final String input = convertPersonToAddCommandString(testPerson);
         final AddCommand result = parseAndAssertCommandType(input, AddCommand.class);
         assertEquals(result.getPerson(), testPerson);
