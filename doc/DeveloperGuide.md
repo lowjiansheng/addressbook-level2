@@ -51,3 +51,9 @@
 * Problem: Test fails during the very first time.<br>
   Solution: The output of the very first test run could be slightly different because the program
   creates a new storage file. Tests should pass from the 2nd run onwards.
+  
+  
+### User Stories
+  As a busy businessman, I can change my tags, so that they stay updated.
+  As a student, I can mass add contacts, so that I don't have to manually type every single one of my contacts.
+  As a student, I can see a list of my contacts sorted according to how frequently I search for them, so that it is more convenient for me to find people I frequently connect with.
