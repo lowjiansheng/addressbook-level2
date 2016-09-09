@@ -83,3 +83,10 @@
   	  
   	  *a. At any time user chooses to cancel edit
   	  	  Use case ends.
+  	  	  
+ ### Non-Functional Requirements
+    1. Users able to store up to 10000 contacts.
+    2. System should be able to work on any OS.
+    3. Search times for contacts or contacts listing should be quick.
+    4. Users should be able to access their own contacts.
+
