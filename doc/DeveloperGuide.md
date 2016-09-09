@@ -57,3 +57,29 @@
   As a busy businessman, I can change my tags, so that they stay updated.
   As a student, I can mass add contacts, so that I don't have to manually type every single one of my contacts.
   As a student, I can see a list of my contacts sorted according to how frequently I search for them, so that it is more convenient for me to find people I frequently connect with.
+  
+### Use Case
+
+ 1 
+  System: Edit existing tag
+  Use case: UC01
+  Actor: User
+  MSS: 
+      1. User chooses to edit tag of existing person.
+      2. System requests for which tag of person to change.
+      3. User selects tag to be changed.
+      4. System requests for details of the changed tag.
+      5. User inputs details for changed tag.
+      6. System requests for confirmation.
+      7. User confirms.
+      8. System changes tag and display new information of user.
+      		Use case ends.
+  Extensions:
+  	  3a. System detects invalid tag selected.
+  	  	3a1. System requests for valid data.
+  	  	3a2. User selects valid data.
+  	  Steps 3a1-3a2 are repeated until tag selected is valid.
+  	  Use case resumes from step 4.
+  	  
+  	  *a. At any time user chooses to cancel edit
+  	  	  Use case ends.
